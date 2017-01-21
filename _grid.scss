@@ -1,0 +1,37 @@
+/**
+ * sem-ui framework 
+ * component grid
+ * Copyright Arjen de Blok
+ * Released under MIT license
+ */
+
+$default-grid-columns: 12 !default;  // defines the default number of grid columns
+$default-grid-gutter: 16px !default; // defines the default grid gutter
+
+// defines a grid
+// in other frameworks this is called a row, but it can consist of more than one row depending on the width of the items
+@mixin grid($grid-gutter: $default-grid-gutter) {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center; // keeps centered on mobile
+    height: 100%; // keeps everything on top
+    margin-left: -$grid-gutter/2; // negative margin to compensate for first and list item
+    margin-right: -$grid-gutter/2; // negative margin to compensate for first and list item
+    list-style: none; // for when used with ul/ol
+}
+
+// defines a single grid item
+// width of column is calculated from total number of columns, the span and the gutter
+// example: grid-item() will create a full span of all columns with a default gutter
+// example: grid-item(6) will create 1/2 with default gutter; identical to grid-item(1,2)
+@mixin grid-item($grid-column-span: $default-grid-columns, $grid-total-columns:$default-grid-columns, $grid-gutter:$default-grid-gutter) {
+    $percentage: $grid-column-span*100%/$grid-total-columns;
+
+    max-width: calc(#{$percentage} - #{$grid-gutter});
+    flex-basis: calc(#{$percentage} - #{$grid-gutter});
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin-left: $grid-gutter/2;
+    margin-right: $grid-gutter/2;
+}
