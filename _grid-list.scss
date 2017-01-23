@@ -1,0 +1,33 @@
+/**
+ * sem-ui framework 
+ * component grid list
+ * Copyright Arjen de Blok
+ * Released under MIT license
+ */
+
+@import "grid";
+
+// defines a grid list  
+// in other frameworks this is called a row, but it can consist of more than one row depending on the width of the items
+// $grid-gutter is the gutter grid, use the same gutter as with grid-list-item or use 0 for no gutter
+@mixin grid-list($grid-gutter: $default-grid-gutter) {
+    @include grid($grid-gutter);
+    padding: 0;
+}
+
+// use this mixin if you expect multiple columns, which normally is false on mobile
+@mixin grid-list-multi-column() {
+    justify-content: flex-start; // keeps left when multiple on one row
+}
+
+// defines a single grid item
+// width of column is calculated from width of the column and the gutter
+// number of columns is dependent on view size and column width
+@mixin grid-list-item($grid-item-width, $grid-gutter: $default-grid-gutter) {
+    max-width: $grid-item-width + $grid-gutter;
+    flex-basis: $grid-item-width + $grid-gutter;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    padding: $grid-gutter/2;
+}
