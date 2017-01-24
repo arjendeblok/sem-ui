@@ -4,7 +4,10 @@
     "description": "SASS scripts for creating semantic UI",
     "files": [
         "LICENSE.md",
-        "README.md"
+        "README.md",
+        "_z-depth.scss",
+        "_grid.scss",
+        "_grid-list.scss"
     ],
     "devDependencies": {
     },
