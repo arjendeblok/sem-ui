@@ -1,0 +1,20 @@
+{
+    "name": "sem-ui",
+    "version": "0.0.1",
+    "description": "SASS scripts for creating semantic UI",
+    "files": [
+        "LICENSE.md",
+        "README.md"
+    ],
+    "devDependencies": {
+    },
+    "scripts": {
+    },
+    "repository": "arjendeblok/sem-ui",
+    "contributors": [
+        "Arjen de Blok <arjen@deblok.org>"
+    ],
+    "license": "MIT",
+    "bugs": "https://github.com/arjendeblok/sem-ui/issues",
+    "homepage": "https://github.com/arjendeblok/sem-ui"
+}
